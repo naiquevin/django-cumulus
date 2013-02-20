@@ -124,6 +124,28 @@ For a full list of available options::
 
     django-admin.py help syncstatic
 
+syncselected
+------------
+
+This management can be used to sync only selected files from the local static media folder to the container. To tell which files to sync, it needs to be
+passed filenames or patterns (supporting Unix shell style wildcards) as arguments.
+
+Invoke the management command::
+
+    django-admin.py syncselected "*.js" "*.css"
+
+The above command will sync only the javascript and css files.
+
+It also suports the the options ``wipe`` and ``test-run`` as in case of the ``syncstatic`` command.
+
+To perform a test-run::
+
+    django-admin.py syncselected "*.js" "*.css" -t
+
+To delete the selected files first and then create again::
+
+    django-admin.py syncselected "*.js" "*.css" -w
+
 container_create
 ----------------
 
